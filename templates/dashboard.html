@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 dashboard-sidebar">
+            <div class="user-profile text-center mb-4">
+                <img src="{{ url_for('static', filename='img/user-avatar.png') }}" class="avatar" alt="Usuario">
+                <h5 class="mt-3">Usuario Premium</h5>
+                <p class="text-muted">Miembro desde: Enero 2023</p>
+            </div>
+            
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        <i class="fas fa-tachometer-alt me-2"></i> Resumen
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-chart-line me-2"></i> Mercados
+                    </a>
+                </li>
+                <!-- Más items del menú -->
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="col-md-9">
+            <div class="dashboard-header">
+                <h2><i class="fas fa-tachometer-alt me-2"></i> Panel de Control</h2>
+                <div class="last-updated" id="lastUpdated">
+                    Actualizando datos...
+                </div>
+            </div>
+            
+            <!-- Price Tiles -->
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="price-tile bg-bitcoin">
+                        <div class="crypto-name">Bitcoin</div>
+                        <div class="crypto-price">$<span id="btc-price">00,000</span></div>
+                        <div class="crypto-change" id="btc-change">+0.00%</div>
+                    </div>
+                </div>
+                <!-- Más tiles para otras criptos -->
+            </div>
+            
+            <!-- Advanced Chart -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4><i class="fas fa-chart-area me-2"></i> Gráfico Avanzado</h4>
+                    <div class="chart-controls">
+                        <select class="form-select form-select-sm">
+                            <option>1D</option>
+                            <option>1W</option>
+                            <option selected>1M</option>
+                            <option>1Y</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="advancedChart" height="300"></canvas>
+                </div>
+            </div>
+            
+            <!-- Alertas -->
+            <div class="card">
+                <div class="card-header">
+                    <h4><i class="fas fa-bell me-2"></i> Alertas de Precio</h4>
+                </div>
+                <div class="card-body">
+                    <form id="alertForm">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <select class="form-select" id="alertCrypto" required>
+                                    <option value="">Seleccionar cripto</option>
+                                    <option value="bitcoin">Bitcoin (BTC)</option>
+                                    <option value="ethereum">Ethereum (ETH)</option>
+                                    <!-- Más opciones -->
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select" id="alertCondition" required>
+                                    <option value=">">Mayor que</option>
+                                    <option value="<">Menor que</option>
+                                    <option value="=">Igual a</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" class="form-control" id="alertValue" placeholder="Precio" required>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <div class="alerts-list mt-4" id="alertsList">
+                        <!-- Lista de alertas activas -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}
