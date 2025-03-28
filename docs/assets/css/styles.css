@@ -1,0 +1,12 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: linear-gradient(45deg, #0d47a1, #1976d2);
+  color: white;
+}
+
+footer {
+  font-size: 0.9em;
+}
