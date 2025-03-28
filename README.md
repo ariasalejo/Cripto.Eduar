@@ -53,7 +53,7 @@ El objetivo de **CriptoEduAr** es democratizar el conocimiento sobre criptomoned
 ## 🌐 Visita el Sitio Web
 
 🚀 Accede directamente aquí:  
-[![GitHub Pages](https://img.shields.io/badge/Página%20Live-Verde?logo=github&style=flat)](https://ariasalejo.github.io/CriptoEduAr)
+[![GitHub Pages](https://img.shields.io/badge/Página%20Live-Verde?logo=github&style=flat)](https://ariasalejo.github.io/Cripto.EduAr)
 
 ---
 
