@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CriptoEduAr - Mercado Cripto</title>
+    
+    <!-- Fuentes/Icónos (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Estilos CSS integrados -->
+    <style>
+        :root {
+            --dorado: #FFD700;
+            --azul-oscuro: #0A1D3E;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        
+        .banner {
+            background: linear-gradient(135deg, var(--azul-oscuro), #1a3a8f);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .titulo-banner {
+            font-size: 2.5rem;
+            margin: 0;
+            background: linear-gradient(90deg, var(--dorado), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .grafico-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner -->
+    <header class="banner">
+        <h1 class="titulo-banner">CriptoEduAr</h1>
+        <p>Educación Blockchain para Todos</p>
+    </header>
+
+    <!-- Gráfico -->
+    <div class="grafico-container">
+        <canvas id="graficoCripto"></canvas>
+    </div>
+
+    <!-- JavaScript integrado -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('graficoCripto').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+                    datasets: [{
+                        label: 'Bitcoin (USD)',
+                        data: [65000, 70000, 80000, 85000, 90000, 95000],
+                        borderColor: '#FFD700',
+                        borderWidth: 3,
+                        tension: 0.1
+                    }, {
+                        label: 'Ethereum (USD)',
+                        data: [1800, 1900, 2000, 2200, 2500, 3000],
+                        borderColor: '#627EEA',
+                        borderWidth: 3,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Evolución de Precios 2024',
+                            font: {
+                                size: 18
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
