@@ -14,6 +14,33 @@
     <!-- Estilos CSS integrados -->
     <style>
         :root {
+  name: Despliegue Estático
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Construir proyecto
+        run: npm run build
+
+      - name: Desplegar en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+            
             --dorado: #FFD700;
             --azul-oscuro: #0A1D3E;
         }
