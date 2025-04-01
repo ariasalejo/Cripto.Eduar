@@ -5,48 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CriptoEduAr - Mercado Cripto</title>
     
-    <!-- Fuentes/Icónos (CDN) -->
+    <!-- Font Awesome (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Chart.js (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <!-- Estilos CSS integrados -->
+    <!-- Estilos CSS -->
     <style>
         :root {
-  name: Despliegue Estático
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout del código
-        uses: actions/checkout@v4
-
-      - name: Instalar dependencias
-        run: npm ci
-
-      - name: Construir proyecto
-        run: npm run build
-
-      - name: Desplegar en GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-            
             --dorado: #FFD700;
             --azul-oscuro: #0A1D3E;
         }
         
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             background-color: #f0f2f5;
         }
@@ -89,7 +62,7 @@ jobs:
         <canvas id="graficoCripto"></canvas>
     </div>
 
-    <!-- JavaScript integrado -->
+    <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const ctx = document.getElementById('graficoCripto').getContext('2d');
